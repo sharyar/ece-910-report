@@ -10,37 +10,41 @@
 
 
 \section{Models and Tokenizers}\label{sec:models}
-The models used in this project come from two different sources. The GPT2-XL model is based on the OpenAI's GPT2 model \cite{radford_language_nodate}. 
-The GPT2-XL model has 48 attention modules as compared to the 12 found in the base GPT2 model. This gives the GPT2-XL model more capability 
-in terms of language modelling tasks but also requires significant more computing resources to train and work with \cite{noauthor_pretrained_nodate}. 
-This translates to 117 million parameters in the GPT2 model vs 1.6 billion parameters in the GPT2-XL model. Given that the COMET-DISTIL models are 
-based on the GPT2-XL model, we opted to utilize the naive GPT2-Xl model as our baseline for comparison. We downloaded the GPT2-Xl model by 
-using the Hugginface model library \cite{noauthor_gpt2-xl_nodate}. As our tokenizer, we used the pre-trained tokenzier also available from 
-the hugginsface model library \cite{noauthor_gpt2-xl_nodate}. 
+The models used in this project come from two different sources. The GPT2-XL model is based on the OpenAI's GPT2 model 
+\cite{radford_language_nodate}. The GPT2-XL model has 48 attention modules as compared to the 12 found in the base 
+GPT2 model. This gives the GPT2-XL model more capability in terms of language modelling tasks but also requires 
+significantly more computing resources to train and work with \cite{noauthor_pretrained_nodate}. This translates to 117 
+million parameters in the GPT2 model vs 1.6 billion parameters in the GPT2-XL model. Given that the COMET-DISTIL models
+are based on the GPT2-XL model, we opted to utilize the naive GPT2-Xl model as our baseline for comparison. We 
+downloaded the GPT2-Xl model by using the Hugginface model library \cite{noauthor_gpt2-xl_nodate}. As our tokenizer, we 
+used the pre-trained tokenzier also available from the hugginsface model library \cite{noauthor_gpt2-xl_nodate}. 
 
-The second model we used was the COMET-DISTIL model \cite{west_symbolic_2021} that was trained on the ATOMIC-10X knowledge graph. The COMET-DISTIL 
-model was downloaded from the author's provided website that can be found on their githhub page \cite{peterwestai2_symbolic_2022}. The tokenizer used
-with this model was also downloaded from the same source. The tokenizers for both models were adjusted to add EOS tokens to ensure that they could work 
-with the datasets that were used for evaluationg the models. 
+The second model we used was the COMET-DISTIL model \cite{west_symbolic_2021} that was trained on the ATOMIC-10X 
+knowledge graph. The COMET-DISTIL model was downloaded from the author's provided website that can be found on their 
+githhub page \cite{peterwestai2_symbolic_2022}. The tokenizer used with this model was also downloaded from the same 
+source. The tokenizers for both models were adjusted to add EOS tokens to ensure that they could work with the datasets 
+that were used for evaluationg the models. 
 
-In order to train and test the models, both models had different language modelling heads (dependening on the task) connected
-to the models. The heads were then trained on the training set of the datasets and then evaulted on 
+In order to train and test the models, both models had different language modelling heads (dependening on the task) 
+connected to the models. The heads were then trained on the training set of the datasets and then evaulted on 
 the evaulation set of the datasets. 
 
 \section{Datasets}\label{sec:datasets}
-In order to test the performances of the respective models, several different standard datasets were used. This included the widely
-recognized SuperGLUE dataset \cite{wang_superglue_nodate}. The second benchmark was based on the CommonsenseQA dataset \cite{talmor_commonsenseqa_2018} 
-that tests a model's ability to answer a question based on prior knowledge. The SuperGLUE benchmark on the other hand is made up of several different datasets
-that test a model on a variety of tasks including BoolQ, CB, COPA and MultiRC. 
+In order to test the performances of the respective models, several different standard datasets were used. This 
+included the widely recognized Glue dataset \cite{}. The second benchmark was based on the 
+CommonsenseQA dataset \cite{talmor_commonsenseqa_2018} that tests a model's ability to answer a question based on prior 
+knowledge. The SuperGLUE benchmark on the other hand is made up of several different datasets that test a model on a 
+variety of tasks including BoolQ, CB, COPA and MultiRC. 
 
 These two benchmarks were choosen based on their wide variety of tasks and the difficulty 
-associated with each of these tasks. 
+associated with each of these tasks. In addition, the original glue benchmark was used to test the performance of 
+models to add an additional comparison point to the study. 
 
 
 \section{Compute Resources}\label{sec:computeResources}
-To train and evaluate the performance of the respective models, Lambda Compute Instances at
-the University of Alberta were utilized. The machines included two Nvidia N100 Gpus with 24GB
-of memory. Due to the large size of the GPT2-XL Model (5.2 Billion Parameters), we also 
-utilized the DeepSpeed library from Microsoft to help fit the models within the GPU memory. 
+To train and evaluate the performance of the respective models, Lambda Compute Instances at the University of Alberta 
+were utilized. The machines included two Nvidia N100 Gpus with 24GB of memory. Due to the large size of the GPT2-XL 
+Model (5.2 Billion Parameters), the DeepSpeed\cite{rajbhandari_zero_2020} library from Microsoft was also utilized to 
+help fit the models within the GPU memory. 
 
 \end{document}
