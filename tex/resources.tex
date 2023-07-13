@@ -10,6 +10,7 @@
 
 
 \section{Models and Tokenizers}\label{sec:models}
+
 The models used in this project come from two different sources. The GPT2-XL model is based on the OpenAI's GPT2 model 
 \cite{radford_language_nodate}. The GPT2-XL model has 48 attention modules as compared to the 12 found in the base 
 GPT2 model. This gives the GPT2-XL model more capability in terms of language modelling tasks but also requires 
@@ -46,5 +47,21 @@ To train and evaluate the performance of the respective models, Lambda Compute I
 were utilized. The machines included two Nvidia N100 Gpus with 24GB of memory. Due to the large size of the GPT2-XL 
 Model (5.2 Billion Parameters), the DeepSpeed\cite{rajbhandari_zero_2020} library from Microsoft was also utilized to 
 help fit the models within the GPU memory. 
+
+\section{Development Environment}
+\begin{enumerate}
+    \item Python 3.8.13
+    \item Conda 4.11.0 (Environemnt Manager)
+    \item jupyterlab 3.3.2 (IDE / Notebook)
+    \item pytorch 1.11.0 (Deep Learning Framework)
+    \item transformers 4.27.0.dev0 (Huggingface Library)
+    \item deepspeed 0.8.1 (Model Training Utility)
+\end{enumerate}
+
+\section{Pytorch}\label{sec:pytorch}
+
+\section{Huggingface}\label{sec:huggingface}
+
+\section{Deepspeed}\label{sec:deepspeed}
 
 \end{document}
