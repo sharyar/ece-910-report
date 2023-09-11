@@ -32,10 +32,10 @@ the evaulation set of the datasets.
 
 \section{Datasets}\label{sec:datasets}
 In order to test the performances of the respective models, several different standard datasets were used. This 
-included the widely recognized Glue dataset \cite{}. The second benchmark was based on the 
-CommonsenseQA dataset \cite{talmor_commonsenseqa_2018} that tests a model's ability to answer a question based on prior 
+included the widely recognized Glue dataset\cite{}. The second benchmark was based on the 
+CommonsenseQA dataset\cite{talmor_commonsenseqa_2018} that tests a model's ability to answer a question based on prior 
 knowledge. The SuperGLUE benchmark on the other hand is made up of several different datasets that test a model on a 
-variety of tasks including BoolQ, CB, COPA and MultiRC. 
+variety of tasks including BoolQ, CB, COPA and MultiRC.
 
 These two benchmarks were choosen based on their wide variety of tasks and the difficulty 
 associated with each of these tasks. In addition, the original glue benchmark was used to test the performance of 
@@ -59,8 +59,36 @@ help fit the models within the GPU memory.
 \end{enumerate}
 
 \section{Pytorch}\label{sec:pytorch}
+PyTorch\cite{paszke_pytorch_2019} is one of the most well-known Deep Learning frameworks. Developed orgiinally by the Facebook's Research Lab (FAIR), 
+it is currently an integral part of the huggingface library which was also utilized for this project. It is used both by
+researchers and developers. It offers several advantages which allow us to train our models in an effective manner even when 
+facing low memory constraints. This is especially important when dealing with large language models such as GPT2-xl. 
+
+Some of the offerings that come with pytorch are it's Dynamic Computation Graph which allow us to change the model architecture 
+on the fly. Another advantage is the rich ecosystem of libraries that either support or utilize pytorch such as 
+huggingface and deepspeed which we will also utilize. 
 
 \section{Huggingface}\label{sec:huggingface}
+Another key piece of software that was utilized to perform these experiments was the Huggingface\cite{wolf_transformers_2020} library. It is 
+an open source framework that provides many state-of-the-art implementsions of NLP models, particulary transformer-based models such as BERT, GTP-2 
+and GPT-2-xl. Huggingface 
+
+\begin{enumerate}
+    \item \textbf{Pre-trained Models}: The library boasts a broad selection of pre-trained models. This feature significantly eases the 
+    process of fine-tuning models for specific tasks, removing the necessity to train extensive models from the ground up. We capitalized on this 
+    by utilizing the GPT-2-xl models available from the model hub. 
+    
+    \item \textbf{Flexibility}: While the Transformers library seamlessly integrates with popular deep learning frameworks like 
+    PyTorch and TensorFlow, users have the freedom to select their preferred backend. In addition huggingface offers native integrations with 
+    Zero and Deepspeed libraries making model training possible even with limited hardware resources. 
+    
+    \item \textbf{User-friendly API}: The design of the API is intuitive, ensuring that tasks such as tokenization, 
+    training, and inference are both streamlined and accessible with minimal coding. This user-centric design approach caters to 
+    both novices and experts in the field of NLP. The library also comes with a very hand run\_glue script that we were able to modify to 
+    run our experiments for the glue dataset.
+
+\end{enumerate}
+
 
 \section{Deepspeed}\label{sec:deepspeed}
 
