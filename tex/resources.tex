@@ -58,6 +58,28 @@ help fit the models within the GPU memory.
     \item deepspeed 0.8.1 (Model Training Utility)
 \end{enumerate}
 
+
+\section{Python, JupyterLab, and Conda}\label{sec:python}
+
+We utilized a combination of tools and environments that are foundational in the modern data science and machine 
+learning workflows: Python, JupyterLab, and Conda to conduct these experiments. 
+
+\begin{enumerate}
+    \item \textbf{Python}: Python has become the backbone of the modern datascience and machine learning 
+    world due to its ease of use and the widely supported libraries built on top such as Tensorflow, Pandas and Pytorch. 
+    In addition, it is also highly performant as it is able to utilize bindings with other low level languages
+    such as C/C++ for intensive computing tasks. This is essentially how numpy is able to do maths so quickly! 
+    
+    \item \textbf{JupyterLab}: An interactive development environment that provides a platform for writing 
+    and executing code, visualizing data. It's an evolution of the original Jupyter notebooks. 
+    
+    \item \textbf{Conda}: An open-source package management system and also an environment 
+    management system. Conda makes it easy to install multiple versions of software packages 
+    and their dependencies in isolated environments. This ensures consistent and reproducible 
+    results across different stages of a project and across different team members' setups.
+\end{enumerate}
+
+
 \section{Pytorch}\label{sec:pytorch}
 PyTorch\cite{paszke_pytorch_2019} is one of the most well-known Deep Learning frameworks. Developed orgiinally by the Facebook's Research Lab (FAIR), 
 it is currently an integral part of the huggingface library which was also utilized for this project. It is used both by
@@ -90,6 +112,55 @@ and GPT-2-xl. Huggingface
 \end{enumerate}
 
 
-\section{Deepspeed}\label{sec:deepspeed}
+\section{Deepspee and ZeRO}\label{sec:deepspeed}
+
+DeepSpeed\cite{rajbhandari_zero_2020} is an open-source deep learning optimization library that offers several techniques for distributed 
+training and model parallelism. One of its most renowned components is ZeRO (Zero Redundancy Optimizer), a memory optimization technology.
+
+\begin{enumerate}
+    \item \textbf{Scalability}: DeepSpeed drastically improves the scale and speed of training. It can support 
+    model sizes of over 100 billion parameters on current generation hardware.
+    
+    \item \textbf{ZeRO (Zero Redundancy Optimizer)}: A key innovation of DeepSpeed, ZeRO optimizes the memory utilization across 
+    distributed model training. By reducing memory redundancy across the data parallelism stages, ZeRO enables the training of models 
+    that are up to 10x larger without any significant increase in computational resources.
+    
+    \item \textbf{Memory Efficiency}: Through its optimization techniques, such as activation checkpointing, 
+    DeepSpeed allows for more significant model sizes and batch sizes without the need for proportional increases in memory.
+    
+    \item \textbf{Integration}: DeepSpeed is designed to be easily integrated into existing PyTorch models, making it a 
+    versatile choice for many deep learning applications.
+\end{enumerate}
+
+In this report, DeepSpeed and ZeRO were leveraged to train larger models more efficiently, leading to reduced training times and 
+enhanced performance on our tasks.
+
+\section{Weights \& Biases}\label{sec:weightsAndBiases}
+
+We also utilized Weights \& Biases (W\&B)\cite{wandb}, a platform designed to help teams track their machine learning experiments, 
+visualize metrics, and share findings. We will link our project in the append of this report to allow you to view the raw data from the 
+experiments directly. Here are some of the reasons why we relied on Weights \& Biases for tracking our experiments: 
+
+\begin{enumerate}
+    \item \textbf{Experiment Tracking}: W\&B provides comprehensive logging of hyperparameters, outputs, code, and metrics. 
+    By having a centralized record, researchers and developers can easily compare different runs and iterations, 
+    making it simpler to iterate over model architectures and parameters.
+    
+    \item \textbf{Visualization}: Through interactive charts and graphs, the platform facilitates a deeper understanding 
+    of model behavior. This aids in identifying patterns, anomalies, or areas of improvement in model training and validation.
+    
+    \item \textbf{Reproducibility}: The platform ensures that every detail of the experiment, from code to configurations, 
+    is logged. This is crucial for both verifying results and building upon previous work without redundancy.
+    
+    \item \textbf{Collaboration}: W\&B promotes collaboration by allowing teams to share findings, make comments, and 
+    build on each other's work seamlessly. This feature is especially beneficial for distributed teams or projects with 
+    multiple stakeholders. This allowed our team to collaborate and share findings on this project as we were all 
+    located remotely. 
+    
+\end{enumerate}
+
+For the experiments detailed in this report, Weights \& Biases was employed to monitor the training process, analyze results, 
+and ensure reproducibility across different runs.
+
 
 \end{document}
