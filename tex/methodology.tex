@@ -9,6 +9,87 @@
 \chapter{Methodology}
 \label{chap:methodology}
 
+\section{Obtaining Models}\label{sec:ObtainingModels}
+To begin with, we obtained models from two sources. The first model was the COMET-DISTIL model
+which was downloaded from the original author's Github page\cite{west_symbolic_2021}. The second model 
+was the GPT2-XL model that had been trained but not \"specialized\" unlike the COMET-DISTIL model. This 
+model was obtained from the Huggingface model hub by using their API.
 
+Once the two models and their tokenizers were downloaded, we set up a series of experiments with 
+different datasets. All of this was done on the University of Alberta Compute Resources via an SSH tunnel. 
+
+\section{Preparing Datasets}\label{sec:PrepareDataset}
+We used the GLUE\cite{wang_glue_2019} benchmark set as it is considered a widely 
+To evaluate and compare the performance of our two models, it was crucial to select a benchmark 
+that provides a comprehensive assessment across various linguistic tasks. 
+After careful consideration, the General Language Understanding Evaluation (GLUE) benchmark was chosen for the following reasons:
+
+\begin{enumerate}
+    \item \textbf{Comprehensive Assessment}: GLUE is an aggregation of multiple data sources and 
+    tasks that span a broad range of NLP challenges. This includes tasks such as sentiment analysis, 
+    question-answering, and textual entailment, among others. Using GLUE allows for a holistic 
+    evaluation of the LLM's capabilities.
+
+    \item \textbf{Standardization}: Since its inception, GLUE has been widely adopted in the 
+    NLP community as a standard for evaluating language understanding capabilities. 
+    Comparing our models against this standard ensures that our results are in line with 
+    the broader research community's expectations and methodologies.
+
+    \item \textbf{Reproducibility and Fairness}: Given the well-defined evaluation metrics and 
+    standardized tasks, using GLUE ensures that our comparisons between the two LLM versions are 
+    fair and can be reliably reproduced by other researchers.
+
+    \item \textbf{Model Generalization}: By evaluating on GLUE, we can ascertain how well our 
+    LLM versions generalize across diverse tasks. This is crucial for understanding potential 
+    areas of improvement and the model's applicability in real-world scenarios.
+
+    \item \textbf{Community Recognition}: The results on GLUE are easily interpretable and 
+    recognizable by those familiar with NLP research. This facilitates clearer communication of 
+    our model's strengths and areas for improvement to peers and stakeholders.
+
+\end{enumerate}
+
+Given these advantages, the GLUE benchmark provided an objective and widely-accepted means 
+to compare and contrast the performance of our two LLM versions, ensuring both rigorous 
+evaluation and clear communication of our findings.
+
+We were able to download the dataset directly from the Huggingface website. There is an accessible
+API that allows direct use of the datasets from the hugginface library within the model 
+training code which we were able to capitalize on after. 
+
+\section{Training Models}\label{sec:ModelTraining}
+
+We tried several different approaches including writing custom code to fine tune the models for 
+the specific tasks in the GLUE dataset. We eventually discovered that the Transformers library 
+comes with a handy run\_glue.py script that can be found in their github repository.
+
+In order to get everything working correctly, we had to first install the transformers library 
+from source. Then we had to install the deepspeed library and try several different configurations 
+to get the models to fit in memory and be able to train in a reasonable amount of time. 
+
+
+We also modified the code for the run\_glue script as we noticed some issues while trying to collect
+some of the results for the GLUE benchmark dataset. 
+
+
+In order to conduct our study, we fine-tuned both models on the training subset for each of the GLUE 
+benchmark sets. Then we evaluated them against the Evaluation set. Since the evaluation and the 
+training sets are predefined, we opted to run the experiments 5 times with a different random variable. 
+
+We then collected the predictions for the benchmark tests from both models where we noticed 
+large differences. This was done to understand if there were particular scnearios/patterns where the 
+models did differently. 
+
+\section{Conducting Tests and Collating Results}
+
+The training and testing of the two models took a little over 48 days to complete. Computationally, 
+LLM are hard to work with for this reason. We were limited in the variety of benchmarks we could run
+as even finetuning and evaluating these models without significanntly more computing resources is very 
+time consuming. 
+
+We tracked these experiment and collected these results by using the Weights and Biases framework. The 
+W\&B report can be found via this link: 
+
+https://api.wandb.ai/report/ece-910/832fd6di
 
 \end{document}

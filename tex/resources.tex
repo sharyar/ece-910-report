@@ -11,18 +11,18 @@
 
 \section{Models and Tokenizers}\label{sec:models}
 
-The models used in this project come from two different sources. The GPT2-XL model is based on the OpenAI's GPT2 model 
-\cite{radford_language_nodate}. The GPT2-XL model has 48 attention modules as compared to the 12 found in the base 
+The models used in this project come from two different sources. The GPT2-XL model is based on the OpenAI's GPT2 
+model\cite{radford_language_nodate}. The GPT2-XL model has 48 attention modules as compared to the 12 found in the base 
 GPT2 model. This gives the GPT2-XL model more capability in terms of language modelling tasks but also requires 
-significantly more computing resources to train and work with \cite{noauthor_pretrained_nodate}. This translates to 117 
+significantly more computing resources to train and work with\cite{noauthor_pretrained_nodate}. This translates to 117 
 million parameters in the GPT2 model vs 1.6 billion parameters in the GPT2-XL model. Given that the COMET-DISTIL models
 are based on the GPT2-XL model, we opted to utilize the naive GPT2-Xl model as our baseline for comparison. We 
-downloaded the GPT2-Xl model by using the Hugginface model library \cite{noauthor_gpt2-xl_nodate}. As our tokenizer, we 
-used the pre-trained tokenzier also available from the hugginsface model library \cite{noauthor_gpt2-xl_nodate}. 
+downloaded the GPT2-Xl model by using the Hugginface model library\cite{noauthor_gpt2-xl_nodate}. As our tokenizer, we 
+used the pre-trained tokenzier also available from the hugginsface model library\cite{noauthor_gpt2-xl_nodate}. 
 
-The second model we used was the COMET-DISTIL model \cite{west_symbolic_2021} that was trained on the ATOMIC-10X 
+The second model we used was the COMET-DISTIL model\cite{west_symbolic_2021} that was trained on the ATOMIC-10X 
 knowledge graph. The COMET-DISTIL model was downloaded from the author's provided website that can be found on their 
-githhub page \cite{peterwestai2_symbolic_2022}. The tokenizer used with this model was also downloaded from the same 
+githhub page\cite{peterwestai2_symbolic_2022}. The tokenizer used with this model was also downloaded from the same 
 source. The tokenizers for both models were adjusted to add EOS tokens to ensure that they could work with the datasets 
 that were used for evaluationg the models. 
 
@@ -32,10 +32,10 @@ the evaulation set of the datasets.
 
 \section{Datasets}\label{sec:datasets}
 In order to test the performances of the respective models, several different standard datasets were used. This 
-included the widely recognized Glue dataset\cite{}. The second benchmark was based on the 
+included the widely recognized Glue dataset\cite{wang_glue_2019}. The second benchmark was based on the 
 CommonsenseQA dataset\cite{talmor_commonsenseqa_2018} that tests a model's ability to answer a question based on prior 
 knowledge. The SuperGLUE benchmark on the other hand is made up of several different datasets that test a model on a 
-variety of tasks including BoolQ, CB, COPA and MultiRC.
+variety of tasks including BoolQ, CB, COPA and MultiRC.\@
 
 These two benchmarks were choosen based on their wide variety of tasks and the difficulty 
 associated with each of these tasks. In addition, the original glue benchmark was used to test the performance of 

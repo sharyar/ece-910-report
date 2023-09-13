@@ -12,8 +12,7 @@
    - Understand the effect of specializing a LLM such as GPT-2 on it's general language capabilities
 4. Resources Used:
    1. Datasets
-      1. Super Glue
-      2. Commonsense QA
+      1. Glue
    2. Dev Environment
       - Hardware and Software
    3. Models (GPT2-XL and Comet)
