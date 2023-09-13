@@ -21,6 +21,10 @@
    2. Training
    3. Evaluation
 6. Results
-7. Future Objectives and Challenges
-8. Conclusion
-9. References
+   1. CoLA Results
+   2. RTE Results
+   3. Other Results
+7. Discussion
+   1. Model Differences
+   2. Challenges
+8. References
