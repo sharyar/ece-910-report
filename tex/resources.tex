@@ -11,51 +11,47 @@
 
 \section{Models and Tokenizers}\label{sec:models}
 
-The models used in this project come from two different sources. The GPT2-XL model is based on the OpenAI's GPT2 
-model\cite{radford_language_nodate}. The GPT2-XL model has 48 attention modules as compared to the 12 found in the base 
-GPT2 model. This gives the GPT2-XL model more capability in terms of language modelling tasks but also requires 
+The models used in this project come from two different sources. The GPT-2 XL model is based on the OpenAI's GPT2 
+model\cite{radford_language_nodate}. The GPT-2 XL model has 48 attention modules as compared to the 12 found in the base 
+GPT2 model. This gives the GPT-2 XL model more capability in terms of language modelling tasks but also requires 
 significantly more computing resources to train and work with\cite{noauthor_pretrained_nodate}. This translates to 117 
-million parameters in the GPT2 model vs 1.6 billion parameters in the GPT2-XL model. Given that the COMET-DISTIL models
-are based on the GPT2-XL model, we opted to utilize the naive GPT2-Xl model as our baseline for comparison. We 
-downloaded the GPT2-Xl model by using the Hugginface model library\cite{noauthor_gpt2-xl_nodate}. As our tokenizer, we 
-used the pre-trained tokenzier also available from the hugginsface model library\cite{noauthor_gpt2-xl_nodate}. 
+million parameters in the GPT2 model vs 1.6 billion parameters in the GPT-2 XL model. Given that the COMET-DISTIL models
+are based on the GPT-2 XL model, we opted to utilize the naive GPT-2 XL model as our baseline for comparison. We 
+downloaded the GPT-2 XL model by using the Hugging Face model library\cite{noauthor_GPT-2 XL_nodate}. As our tokenizer, we 
+used the pre-trained tokenzier also available from the Hugging Face model library\cite{noauthor_GPT-2 XL_nodate}. 
 
 The second model we used was the COMET-DISTIL model\cite{west_symbolic_2021} that was trained on the ATOMIC-10X 
 knowledge graph. The COMET-DISTIL model was downloaded from the author's provided website that can be found on their 
-githhub page\cite{peterwestai2_symbolic_2022}. The tokenizer used with this model was also downloaded from the same 
+GithHub page\cite{peterwestai2_symbolic_2022}. The tokenizer used with this model was also downloaded from the same 
 source. The tokenizers for both models were adjusted to add EOS tokens to ensure that they could work with the datasets 
-that were used for evaluationg the models. 
+that were used for evaluating the models. 
 
-In order to train and test the models, both models had different language modelling heads (dependening on the task) 
-connected to the models. The heads were then trained on the training set of the datasets and then evaulted on 
-the evaulation set of the datasets. 
+In order to train and test the models, both models had different language modelling heads (depending on the task) 
+connected to the models. The heads were then trained on the training set of the datasets and then evaluated on 
+the evaluation set of the datasets. 
 
 \section{Datasets}\label{sec:datasets}
-In order to test the performances of the respective models, several different standard datasets were used. This 
-included the widely recognized Glue dataset\cite{wang_glue_2019}. The second benchmark was based on the 
-CommonsenseQA dataset\cite{talmor_commonsenseqa_2018} that tests a model's ability to answer a question based on prior 
-knowledge. The SuperGLUE benchmark on the other hand is made up of several different datasets that test a model on a 
-variety of tasks including BoolQ, CB, COPA and MultiRC.\@
+In order to test the performances of the respective models, several standard datasets were used. This 
+included the widely recognized GLUE dataset\cite{wang_glue_2019}. 
 
-These two benchmarks were choosen based on their wide variety of tasks and the difficulty 
-associated with each of these tasks. In addition, the original glue benchmark was used to test the performance of 
-models to add an additional comparison point to the study. 
+These benchmark was chosen based on its wide variety of tasks and the difficulty 
+associated with each of these tasks. 
 
 
 \section{Compute Resources}\label{sec:computeResources}
 To train and evaluate the performance of the respective models, Lambda Compute Instances at the University of Alberta 
-were utilized. The machines included two Nvidia N100 Gpus with 24GB of memory. Due to the large size of the GPT2-XL 
+were utilized. The machines included two Nvidia N100 Gpus with 24GB of memory. Due to the large size of the GPT-2 XL 
 Model (5.2 Billion Parameters), the DeepSpeed\cite{rajbhandari_zero_2020} library from Microsoft was also utilized to 
 help fit the models within the GPU memory. 
 
 \section{Development Environment}
 \begin{enumerate}
     \item Python 3.8.13
-    \item Conda 4.11.0 (Environemnt Manager)
+    \item Conda 4.11.0 (Environment Manager)
     \item jupyterlab 3.3.2 (IDE / Notebook)
-    \item pytorch 1.11.0 (Deep Learning Framework)
-    \item transformers 4.27.0.dev0 (Huggingface Library)
-    \item deepspeed 0.8.1 (Model Training Utility)
+    \item PyTorch 1.11.0 (Deep Learning Framework)
+    \item transformers 4.27.0.dev0 (Hugging Face Library)
+    \item DeepSpeed 0.8.1 (Model Training Utility)
 \end{enumerate}
 
 
@@ -65,10 +61,10 @@ We utilized a combination of tools and environments that are foundational in the
 learning workflows: Python, JupyterLab, and Conda to conduct these experiments. 
 
 \begin{enumerate}
-    \item \textbf{Python}: Python has become the backbone of the modern datascience and machine learning 
-    world due to its ease of use and the widely supported libraries built on top such as Tensorflow, Pandas and Pytorch. 
+    \item \textbf{Python}: Python has become the backbone of the modern Data Science and Machine Learning 
+    world due to its ease of use and the widely supported libraries built on top such as TensorFlow, Pandas and PyTorch. 
     In addition, it is also highly performant as it is able to utilize bindings with other low level languages
-    such as C/C++ for intensive computing tasks. This is essentially how numpy is able to do maths so quickly! 
+    such as C/C++ for intensive computing tasks. This is essentially how numpy is able to do math so quickly! 
     
     \item \textbf{JupyterLab}: An interactive development environment that provides a platform for writing 
     and executing code, visualizing data. It's an evolution of the original Jupyter notebooks. 
@@ -80,20 +76,21 @@ learning workflows: Python, JupyterLab, and Conda to conduct these experiments.
 \end{enumerate}
 
 
-\section{Pytorch}\label{sec:pytorch}
-PyTorch\cite{paszke_pytorch_2019} is one of the most well-known Deep Learning frameworks. Developed orgiinally by the Facebook's Research Lab (FAIR), 
-it is currently an integral part of the huggingface library which was also utilized for this project. It is used both by
-researchers and developers. It offers several advantages which allow us to train our models in an effective manner even when 
-facing low memory constraints. This is especially important when dealing with large language models such as GPT2-xl. 
+\section{PyTorch}\label{sec:PyTorch}
+PyTorch\cite{paszke_PyTorch_2019} is one of the most well-known Deep Learning frameworks. Developed originally by the Facebook's Research Lab (FAIR), 
+it is currently an integral part of the Hugging Face library which was also utilized for this project. It is used both by
+researchers and developers. It offers several advantages which allow us to train our models effectively even when 
+facing low memory constraints. This is especially important when dealing with large language models such as GPT-2 XL. 
 
-Some of the offerings that come with pytorch are it's Dynamic Computation Graph which allow us to change the model architecture 
-on the fly. Another advantage is the rich ecosystem of libraries that either support or utilize pytorch such as 
-huggingface and deepspeed which we will also utilize. 
+Some of the offerings that come with PyTorch are it's Dynamic Computation Graph which allow us to change the model architecture 
+on the fly. Another advantage is the rich ecosystem of libraries that either support or utilize PyTorch such as 
+Hugging Face and DeepSpeed. 
 
-\section{Huggingface}\label{sec:huggingface}
-Another key piece of software that was utilized to perform these experiments was the Huggingface\cite{wolf_transformers_2020} library. It is 
-an open source framework that provides many state-of-the-art implementsions of NLP models, particulary transformer-based models such as BERT, GTP-2 
-and GPT-2-xl. Huggingface 
+\section{Hugging Face}\label{sec:Hugging Face}
+Another key piece of software that was utilized to perform these experiments was 
+the Hugging Face\cite{wolf_transformers_2020} library. It is 
+an open source framework that provides many state-of-the-art implementations of NLP models, particularly transformer-based models such as BERT, GTP-2 
+and GPT-2-xl. Hugging Face 
 
 \begin{enumerate}
     \item \textbf{Pre-trained Models}: The library boasts a broad selection of pre-trained models. This feature significantly eases the 
@@ -101,18 +98,18 @@ and GPT-2-xl. Huggingface
     by utilizing the GPT-2-xl models available from the model hub. 
     
     \item \textbf{Flexibility}: While the Transformers library seamlessly integrates with popular deep learning frameworks like 
-    PyTorch and TensorFlow, users have the freedom to select their preferred backend. In addition huggingface offers native integrations with 
-    Zero and Deepspeed libraries making model training possible even with limited hardware resources. 
+    PyTorch and TensorFlow, users have the freedom to select their preferred backend. In addition, Hugging Face offers native integrations with 
+    Zero and DeepSpeed libraries making model training possible even with limited hardware resources. 
     
     \item \textbf{User-friendly API}: The design of the API is intuitive, ensuring that tasks such as tokenization, 
     training, and inference are both streamlined and accessible with minimal coding. This user-centric design approach caters to 
-    both novices and experts in the field of NLP. The library also comes with a very hand run\_glue script that we were able to modify to 
+    both novices and experts in the field of NLP. The library also comes with a very hand run\_glue.py script that we were able to modify to 
     run our experiments for the glue dataset.
 
 \end{enumerate}
 
 
-\section{Deepspee and ZeRO}\label{sec:deepspeed}
+\section{Deepspee and ZeRO}\label{sec:DeepSpeed}
 
 DeepSpeed\cite{rajbhandari_zero_2020} is an open-source deep learning optimization library that offers several techniques for distributed 
 training and model parallelism. One of its most renowned components is ZeRO (Zero Redundancy Optimizer), a memory optimization technology.
@@ -132,14 +129,11 @@ training and model parallelism. One of its most renowned components is ZeRO (Zer
     versatile choice for many deep learning applications.
 \end{enumerate}
 
-In this report, DeepSpeed and ZeRO were leveraged to train larger models more efficiently, leading to reduced training times and 
-enhanced performance on our tasks.
 
 \section{Weights \& Biases}\label{sec:weightsAndBiases}
 
 We also utilized Weights \& Biases (W\&B)\cite{wandb}, a platform designed to help teams track their machine learning experiments, 
-visualize metrics, and share findings. We will link our project in the append of this report to allow you to view the raw data from the 
-experiments directly. Here are some of the reasons why we relied on Weights \& Biases for tracking our experiments: 
+visualize metrics, and share findings. 
 
 \begin{enumerate}
     \item \textbf{Experiment Tracking}: W\&B provides comprehensive logging of hyperparameters, outputs, code, and metrics. 

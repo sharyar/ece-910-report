@@ -15,7 +15,7 @@
       1. Glue
    2. Dev Environment
       - Hardware and Software
-   3. Models (GPT2-XL and Comet)
+   3. Models (GPT-2 XL and Comet)
 5. Methodology
    1. Data Loading and Preprocessing
    2. Training

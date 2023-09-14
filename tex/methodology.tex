@@ -6,23 +6,20 @@
 
 \begin{document}
 
-\chapter{Methodology}
-\label{chap:methodology}
+\chapter{Methodology}\label{chap:methodology}
 
 \section{Obtaining Models}\label{sec:ObtainingModels}
 To begin with, we obtained models from two sources. The first model was the COMET-DISTIL model
-which was downloaded from the original author's Github page\cite{west_symbolic_2021}. The second model 
-was the GPT2-XL model that had been trained but not \"specialized\" unlike the COMET-DISTIL model. This 
-model was obtained from the Huggingface model hub by using their API.
+which was downloaded from the original author's GitHub page\cite{west_symbolic_2021}. The second model 
+was the naive GPT-2 XL model. This model was obtained from the Hugging Face model hub by using their API.\@
 
 Once the two models and their tokenizers were downloaded, we set up a series of experiments with 
-different datasets. All of this was done on the University of Alberta Compute Resources via an SSH tunnel. 
+different datasets. All of this was done on the University of Alberta Lambda Compute Instance via an SSH tunnel. 
 
 \section{Preparing Datasets}\label{sec:PrepareDataset}
-We used the GLUE\cite{wang_glue_2019} benchmark set as it is considered a widely 
 To evaluate and compare the performance of our two models, it was crucial to select a benchmark 
 that provides a comprehensive assessment across various linguistic tasks. 
-After careful consideration, the General Language Understanding Evaluation (GLUE) benchmark was chosen for the following reasons:
+After careful consideration, the General Language Understanding Evaluation (GLUE)\cite{wang_glue_2019} benchmark was chosen for the following reasons:
 
 \begin{enumerate}
     \item \textbf{Comprehensive Assessment}: GLUE is an aggregation of multiple data sources and 
@@ -53,39 +50,40 @@ Given these advantages, the GLUE benchmark provided an objective and widely-acce
 to compare and contrast the performance of our two LLM versions, ensuring both rigorous 
 evaluation and clear communication of our findings.
 
-We were able to download the dataset directly from the Huggingface website. There is an accessible
-API that allows direct use of the datasets from the hugginface library within the model 
+We were able to download the dataset directly from the Hugging Face website. There is an accessible
+API that allows direct use of the datasets from the Hugging Face library within the model 
 training code which we were able to capitalize on after. 
 
 \section{Training Models}\label{sec:ModelTraining}
 
-We tried several different approaches including writing custom code to fine tune the models for 
+We tried several approaches including writing custom code to fine tune the models for 
 the specific tasks in the GLUE dataset. We eventually discovered that the Transformers library 
-comes with a handy run\_glue.py script that can be found in their github repository.
+comes with a handy run\_glue.py script that can be found in their GitHub repository.
 
-In order to get everything working correctly, we had to first install the transformers library 
-from source. Then we had to install the deepspeed library and try several different configurations 
+In order to get everything working correctly, we had to first install the Transformers library 
+from source. Then we had to install the DeepSpeed library and try several different configurations 
 to get the models to fit in memory and be able to train in a reasonable amount of time. 
 
 
-We also modified the code for the run\_glue script as we noticed some issues while trying to collect
+We also modified the code for the run\_glue.py script as we noticed some issues while trying to collect
 some of the results for the GLUE benchmark dataset. 
 
 
 In order to conduct our study, we fine-tuned both models on the training subset for each of the GLUE 
 benchmark sets. Then we evaluated them against the Evaluation set. Since the evaluation and the 
-training sets are predefined, we opted to run the experiments 5 times with a different random variable. 
+training sets are predefined, we opted to run the experiments 5 times with a different random variable set 
+for the model training. 
 
-We then collected the predictions for the benchmark tests from both models where we noticed 
-large differences. This was done to understand if there were particular scnearios/patterns where the 
+We then collected the predictions for the task from both models where we noticed 
+large differences. This was done to understand if there were particular scenarios/patterns where the 
 models did differently. 
 
 \section{Conducting Tests and Collating Results}
 
 The training and testing of the two models took a little over 48 days to complete. Computationally, 
-LLM are hard to work with for this reason. We were limited in the variety of benchmarks we could run
-as even finetuning and evaluating these models without significanntly more computing resources is very 
-time consuming. 
+LLMs are hard to work with for this reason. We were limited in the variety of benchmarks we could run
+as even fine-tuning and evaluating these models without significantly more computing resources is very 
+time-consuming. 
 
 We tracked these experiment and collected these results by using the Weights and Biases framework. The 
 W\&B report can be found via this link: 
