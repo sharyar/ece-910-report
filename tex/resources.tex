@@ -17,8 +17,8 @@ GPT2 model. This gives the GPT-2 XL model more capability in terms of language m
 significantly more computing resources to train and work with\cite{noauthor_pretrained_nodate}. This translates to 117 
 million parameters in the GPT2 model vs 1.6 billion parameters in the GPT-2 XL model. Given that the COMET-DISTIL models
 are based on the GPT-2 XL model, we opted to utilize the naive GPT-2 XL model as our baseline for comparison. We 
-downloaded the GPT-2 XL model by using the Hugging Face model library\cite{noauthor_GPT-2 XL_nodate}. As our tokenizer, we 
-used the pre-trained tokenzier also available from the Hugging Face model library\cite{noauthor_GPT-2 XL_nodate}. 
+downloaded the GPT-2 XL model by using the Hugging Face model library\cite{noauthor_gpt2-xl_nodate}. As our tokenizer, we 
+used the pre-trained tokenzier also available from the Hugging Face model library\cite{noauthor_gpt2-xl_nodate}. 
 
 The second model we used was the COMET-DISTIL model\cite{west_symbolic_2021} that was trained on the ATOMIC-10X 
 knowledge graph. The COMET-DISTIL model was downloaded from the author's provided website that can be found on their 
@@ -31,16 +31,16 @@ connected to the models. The heads were then trained on the training set of the 
 the evaluation set of the datasets. 
 
 \section{Datasets}\label{sec:datasets}
-In order to test the performances of the respective models, several standard datasets were used. This 
+In order to test the performances of the respective models, several standard datasets are available. This 
 included the widely recognized GLUE dataset\cite{wang_glue_2019}. 
 
-These benchmark was chosen based on its wide variety of tasks and the difficulty 
+The benchmark was chosen based on its wide variety of tasks and the difficulty 
 associated with each of these tasks. 
 
 
 \section{Compute Resources}\label{sec:computeResources}
 To train and evaluate the performance of the respective models, Lambda Compute Instances at the University of Alberta 
-were utilized. The machines included two Nvidia N100 Gpus with 24GB of memory. Due to the large size of the GPT-2 XL 
+was utilized. The machines included two Nvidia N100 Gpus with 24GB of memory. Due to the large size of the GPT-2 XL 
 Model (5.2 Billion Parameters), the DeepSpeed\cite{rajbhandari_zero_2020} library from Microsoft was also utilized to 
 help fit the models within the GPU memory. 
 
@@ -77,7 +77,7 @@ learning workflows: Python, JupyterLab, and Conda to conduct these experiments.
 
 
 \section{PyTorch}\label{sec:PyTorch}
-PyTorch\cite{paszke_PyTorch_2019} is one of the most well-known Deep Learning frameworks. Developed originally by the Facebook's Research Lab (FAIR), 
+PyTorch\cite{paszke_pytorch_2019} is one of the most well-known Deep Learning frameworks. Developed originally by the Facebook's Research Lab (FAIR), 
 it is currently an integral part of the Hugging Face library which was also utilized for this project. It is used both by
 researchers and developers. It offers several advantages which allow us to train our models effectively even when 
 facing low memory constraints. This is especially important when dealing with large language models such as GPT-2 XL. 
@@ -90,7 +90,7 @@ Hugging Face and DeepSpeed.
 Another key piece of software that was utilized to perform these experiments was 
 the Hugging Face\cite{wolf_transformers_2020} library. It is 
 an open source framework that provides many state-of-the-art implementations of NLP models, particularly transformer-based models such as BERT, GTP-2 
-and GPT-2-xl. Hugging Face 
+and GPT-2-xl.
 
 \begin{enumerate}
     \item \textbf{Pre-trained Models}: The library boasts a broad selection of pre-trained models. This feature significantly eases the 

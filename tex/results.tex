@@ -8,16 +8,16 @@
 
 \chapter{Results}
 
-We created several graphs from the raw data to showcase how the two models perform for the various GLUE tasks. 
+We created several graphs from the raw data to show how the two models perform for the various GLUE tasks. 
 
-The graphs are based on the average and standard deviations across the 5 runs we 
+The graphs are based on the average and standard deviations across the five runs we 
 conducted for each of the GLUE tasks. 
 
 \section{CoLA Results}\label{sec:cola_results}
 
-We will start with the CoLA results where we saw the most different between the two models. 
+We will start with the Corpus of Linguistic Acceptability (CoLA) results where we saw the most different between the two models. 
 
-The Corpus of Linguistic Acceptability (CoLA) task is focused on a model's ability 
+The CoLA task is focused on a model's ability 
 to recognize a malformed sentence (grammatically). An example of a malformed sentence that is 
 part of the dataset is `Who does John visit Sally because he likes'.
 
@@ -32,7 +32,7 @@ Traditional metrics like accuracy are used to evaluate models on the CoLA datase
 
 \begin{figure}
     % \centering
-    \includegraphics[keepaspectratio=true, width=0.9\textwidth]{\main/img/COLA}
+    \includegraphics[keepaspectratio=true, width=1.0\textwidth]{\main/img/COLA}
     \caption[GLUE Results: CoLA] {GLUE Results: CoLA}
     \label{fig:cola_fig}
     % Put the label *after* the caption, but inside the float
@@ -55,13 +55,13 @@ recognize it as such but the COMET model fails to do so.
 
 \section{RTE Results}\label{sec:rte_results}
 
-The second difference we noticed between the two models was on the RTE task where GPT-2 XL
- and COMET had accuracy scores of 0.773 $\pm$ 0.009 and 0.680 $\pm$ 0.1. Given that
+The second difference we noticed between the two models was on the Recognizing Textual Entailment (RTE) task where GPT-2 XL
+ and COMET had accuracy scores of 0.773 $\pm$ 0.009 and 0.680 $\pm$ 0.100. Given that
 there was a lot of variability between the runs for the COMET model, we are not conclusive
 about the difference in the performance between the naive GPT-2 XL and the specialized
 COMET model. 
 
-To provide some context, Recognizing Textual Entailment (RTE) is a benchmark challenge 
+To provide some context, the RTE task is a benchmark challenge 
 that focuses on determining whether a given piece of text (the ``hypothesis'') can be inferred or 
 entailed by another piece of text (the ``text'' or ``premise''). Typically, for any given pair of texts, 
 the model is required to decide among three possible relations:
@@ -89,7 +89,7 @@ RTE has been an important task in NLP because it captures a fundamental aspect o
 
 \begin{figure}
     % \centering
-    \includegraphics[keepaspectratio=true, width=0.9\textwidth]{\main/img/RTE}
+    \includegraphics[keepaspectratio=true, width=1.0\textwidth]{\main/img/RTE}
     \caption[GLUE Results: RTE] {GLUE Results: RTE}
     \label{fig:rte_fig}
     % Put the label *after* the caption, but inside the float
@@ -104,7 +104,7 @@ that there was not a very large difference in the performance of the two models.
 
 \begin{figure}
     % \centering
-    \includegraphics[keepaspectratio=true, width=0.9\textwidth]{\main/img/SUMMARY}
+    \includegraphics[keepaspectratio=true, width=1.0\textwidth]{\main/img/SUMMARY}
     \caption[GLUE Results: Summary] {GLUE Results: Summary}
     \label{fig:rte_fig}
     % Put the label *after* the caption, but inside the float
